@@ -1,4 +1,6 @@
 .posts {
   flex: 9;
-  background-color: brown;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
 }
