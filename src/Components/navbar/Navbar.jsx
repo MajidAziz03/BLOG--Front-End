@@ -22,7 +22,7 @@ const Navbar = ({ currentUser }) => {
                         <Link to={'/'} style={{ textDecoration: "none", color: "inherit" }}><li className="links-item">HOME</li></Link>
                         <li className="links-item">ABOUT</li>
                         <li className="links-item">BLOG</li>
-                        <li className="links-item">WRITE</li>
+                        <Link style={{ textDecoration: "none", color: "inherit" }} to='/write'><li className="links-item">WRITE</li></Link>
                         {
                             currentUser
                                 ?

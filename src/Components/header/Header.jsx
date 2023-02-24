@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Header.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Header = () => {
+
+    useEffect(() => {
+        AOS.init({ duration: 2000 })
+    }, [])
+
     return (
         <>
-            <div className="header">
+            <div data-aos='fade-down' className="header">
                 <div className="headerTitle">
                     <span className='.headerTitleSm'>React & Node</span>
                     <span className='headerTitleLg'>Blog</span>

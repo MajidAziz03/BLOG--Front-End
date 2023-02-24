@@ -9,7 +9,7 @@ import Login from './pages/login/Login';
 import Settings from './pages/settings/Settings';
 
 const App = () => {
-    const currentUser = false;
+    const currentUser = true;
     return (
         <Router>
             <Navbar currentUser={currentUser} />
