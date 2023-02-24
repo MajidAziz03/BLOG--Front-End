@@ -3,6 +3,7 @@ import { Avatar } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
+import { motion } from 'framer-motion'
 
 const Navbar = ({ currentUser }) => {
 
@@ -10,12 +11,16 @@ const Navbar = ({ currentUser }) => {
         <>
             <div className="navbar">
                 <div className="left">
-                    <div className="holder-left">
+                    <motion.div
+                        initial={{ x: "-250" }}
+                        animate={{ x: 0 }}
+                        transition={{ delay: 0.8, type: "spring", stiffness: "120" }}
+                        className="holder-left">
                         <Facebook className='icons' />
                         <Twitter className='icons' />
                         <GitHub className='icons' />
                         <Google className='icons' />
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="middle">
                     <ul className="nav-links">

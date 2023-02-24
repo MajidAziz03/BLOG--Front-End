@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 import "./post.css";
-
+import { motion } from 'framer-motion'
 
 export default function Post({ img }) {
 
-  
+
 
     return (
-        <div  className="post">
-            <img
-                className="postImg"
-                src={img}
-                alt=""
-            />
+        <div className="post">
+            <Link to="/post/abc" className="link">
+                <img
+                    className="postImg"
+                    src={img}
+                    alt=""
+                />
+            </Link>
             <div className="postInfo">
                 <div className="postCats">
                     <span className="postCat">
@@ -27,9 +29,7 @@ export default function Post({ img }) {
                     </span>
                 </div>
                 <span className="postTitle">
-                    <Link to="/post/abc" className="link">
-                        Lorem ipsum dolor sit amet
-                    </Link>
+                    Lorem ipsum dolor sit amet
                 </span>
                 <hr />
                 <span className="postDate">1 hour ago</span>
@@ -40,6 +40,6 @@ export default function Post({ img }) {
                 fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
                 atque, exercitationem quibusdam, reiciendis odio laboriosam?
             </p>
-        </div>
+        </div >
     );
 }
