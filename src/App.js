@@ -7,9 +7,10 @@ import Single from './pages/single/Single';
 import Write from './pages/write/Write';
 import Login from './pages/login/Login';
 import Settings from './pages/settings/Settings';
+import { motion } from 'framer-motion';
 
 const App = () => {
-    const currentUser = true;
+    const currentUser = false;
     return (
         <Router>
             <Navbar currentUser={currentUser} />

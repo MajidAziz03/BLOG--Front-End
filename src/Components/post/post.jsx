@@ -7,7 +7,11 @@ export default function Post({ img }) {
 
 
     return (
-        <div className="post">
+        <motion.div
+            className="post"
+            whileHover={{ scale: 1.1 }}
+            transition={{ delay: 0.2, duration: 0.2}}
+        >
             <Link to="/post/abc" className="link">
                 <img
                     className="postImg"
@@ -40,6 +44,6 @@ export default function Post({ img }) {
                 fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
                 atque, exercitationem quibusdam, reiciendis odio laboriosam?
             </p>
-        </div >
+        </motion.div >
     );
 }
