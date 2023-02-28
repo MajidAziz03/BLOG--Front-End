@@ -4,7 +4,7 @@ import AOS from "aos";
 import { useEffect } from "react";
 
 
-export default function Write() {
+const Write = ({ text }) => {
     useEffect(() => {
         AOS.init({ duration: 2000 })
     })
@@ -55,3 +55,6 @@ export default function Write() {
         </motion.div>
     );
 }
+
+
+export default Write;

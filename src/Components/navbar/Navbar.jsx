@@ -1,11 +1,24 @@
 import { Facebook, GitHub, Google, Search, Twitter } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { motion } from 'framer-motion'
+import { Context } from '../../context/context'
+import { toast } from 'react-toastify'
 
-const Navbar = ({ currentUser }) => {
+const Navbar = () => {
+    const { user, dispatch } = useContext(Context);
+    const history = useNavigate()
+
+
+    const handleLogout = () => {
+        dispatch({ type: "USER_LOGOUT" })
+        history("/login")
+        toast.success('Logout Successfully')
+    }
+
+
 
     return (
         <>
@@ -29,22 +42,20 @@ const Navbar = ({ currentUser }) => {
                         <li className="links-item">BLOG</li>
                         <Link style={{ textDecoration: "none", color: "inherit" }} to='/write'><li className="links-item">WRITE</li></Link>
                         {
-                            currentUser
-                                ?
-                                <li className="links-item">LOGOUT</li>
-                                :
-                                null
+                            user && <li className="links-item"
+                                onClick={handleLogout}
+                            >LOGOUT</li>
                         }
                     </ul>
                 </div>
                 <div className="right">
                     <div className="right-sect">
+                        
                         {
-                            currentUser ?
+                            user ?
                                 (
                                     <>
-
-                                        <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+                                        <Avatar alt={user.username} src={user.profilePic} />
                                         <Search />
                                     </>
                                 )

@@ -1,0 +1,56 @@
+.navbarContainer {
+  display: flex;
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 999;
+}
+
+.left {
+  flex: 0.4;
+}
+
+.middle {
+  flex: 6;
+}
+
+.right {
+  flex: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+li {
+  color: white;
+  font-size: 18px;
+}
+
+.mobile ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: silver;
+  margin-top: 5px;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
+  z-index: 999;
+}
+
+.mobileRight {
+  color: white;
+  font-size: 18px;
+  background-color: silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from './Components/navbar/Navbar'
 import Homepage from './pages/homepage/homepage'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -8,37 +8,40 @@ import Write from './pages/write/Write';
 import Login from './pages/login/Login';
 import Settings from './pages/settings/Settings';
 import { motion } from 'framer-motion';
+import { Context } from './context/context';
+// import NavbarStrap from './Components/navbarStrap/NavbarStrap';
 
 const App = () => {
-    const currentUser = false;
+    const { user } = useContext(Context)
     return (
         <Router>
-            <Navbar currentUser={currentUser} />
+            <Navbar />
+            {/* <NavbarStrap /> */}
             <Routes>
-                <Route path="/" element={<Homepage />} />
+                <Route path="/" element={user ? <Homepage /> : <Login />} />
                 <Route path="/posts" element={<Homepage />} />
                 <Route path="/register" element={
                     <>
-                        {currentUser ? <Homepage /> : <Register />}
+                        {user ? <Homepage /> : <Register />}
                     </>
                 }
                 />
                 <Route path="/login" element={
                     <>
-                        {currentUser ? <Homepage /> : <Login />}
+                        {user ? <Homepage /> : <Login />}
                     </>
                 }
                 />
                 <Route path="/post/:id" element={<Single />} />
                 <Route path="/write" element={
                     <>
-                        {currentUser ? <Write /> : <Login />}
+                        {user ? <Write text="You must Login in first" /> : <Login text="You must Login in first" />}
                     </>
                 }
                 />
                 <Route path="/settings" element={
                     <>
-                        {currentUser ? <Settings /> : <Login />}
+                        {user ? <Settings /> : <Login />}
                     </>
                 }
                 />
